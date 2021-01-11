@@ -1,0 +1,28 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "- L'objectif est de créer un mini carnet d'adresse pour \"Pangolin\" sur Express.js (sous forme d'API) avec un front sur angular &  DB Mongo de préférence. \r - (Inscription/Connexion/Déconnexion) du \"Pangolin\" par login/mot de passe :heavy_check_mark: \r - (Afficher/Modifier) ses informations (age / famille / race / nourriture) :heavy_check_mark: \r - (Ajouter) en amis un autre \"Pangolin\" parmi les autres Pangolins inscrits.:heavy_check_mark:\r - (Supprimer) un ami un autre \"Pangolin\". :x:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Celine-Nova/PongoMongo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Celine-Nova/PongoMongo/issues"
+  },
+  "homepage": "https://github.com/Celine-Nova/PongoMongo#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11",
+    "nodemon": "^2.0.7"
+  }
+}
