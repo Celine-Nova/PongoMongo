@@ -5,6 +5,7 @@ require('dotenv/config');
 const express = require('express');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/user.router');
+const friendRouter = require('./routes/friend.router');
 const bodyParser = require('body-parser');
 // Initialisser les applications (express et MongoClient)
 const app = express();
@@ -24,9 +25,10 @@ mongoose.connect("mongodb+srv://teamAppartoo:Admin33@pangolin.o7fsk.mongodb.net/
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-
 // Définir les routes
 app.use('/users', userRouter);
+app.use('/friends', friendRouter);
+
 // demarer le server
 app.listen( port, () => {console.log('connect to server')});
 module.exports = app;

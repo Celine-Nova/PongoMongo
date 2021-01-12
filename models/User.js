@@ -11,7 +11,11 @@ const UserSchema = new mongoose.Schema({
     age: Number,
     family: String,
     race: String,
-    food: String
+    food: String,
+    friend: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 
 });
 

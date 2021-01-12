@@ -15,14 +15,13 @@ router.get('/', async (req, res) => {
 });
 // Ajout d'un pangolin (user)
 router.post('/', async (req, res) => {
+    // je hash le mot de passe
     bcrypt.hash(req.body.password, 10,(err, hash) => {
         if (err) {
             throw err
         };
         req.body.password = hash;
-    console.log(req.body)
-   
-    //    const user = new User(req.body)
+       //    const user = new User(req.body)
         const user = new User({
             login : req.body.login,
             password: req.body.password,
@@ -32,15 +31,18 @@ router.post('/', async (req, res) => {
             food : req.body.food
         }); 
         console.log(user)
-                 
-            console.log('try')
+        try{   
             const saveUser = user.save();
             res.json(saveUser);
-        // }
-        //  catch(err) {
-        //         res.json({ message: 'error'});
-        // }
+            console.log(saveUser)
+        }
+         catch(err) {
+                res.json({ message: err});
+        }
     });
+  
 });
+// Edit
+// Delete
 
 module.exports = router;
