@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
-const UserSchema = new mongoose.Schema({
+const FriendSchema = new mongoose.Schema({
     login: {
         type: String,
-        required: true
+    
     },
     password: {
         type: String,
-        required: true
+      
     },
     age: Number,
     family: String,
     race: String,
     food: String,
-    friends: [{
+    users: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Friend',
+        ref: 'User',
     }]
+
 
 });
 
-module.exports = mongoose.model('Users', UserSchema);
+module.exports = mongoose.model('Friends', FriendSchema);

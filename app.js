@@ -19,7 +19,7 @@ const port = 3000;
 // mongoose.connect(process.env.DB_URL_CONNECTION, { useNewUrlParser: true }, () =>
 // console.log('db connectée')
 // );
-mongoose.connect("mongodb+srv://teamAppartoo:Admin33@pangolin.o7fsk.mongodb.net/pangolin?retryWrites=true&w=majority",
+mongoose.connect(process.env.DB_URL_CONNECTION,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
