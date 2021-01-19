@@ -19,8 +19,21 @@ router.get('/', auth, async (req, res) => {
 // Récupère UN utilisateur
 router.get('/:id', async (req, res) => {
     try {
+        // je récupère l'utilisateur par son Id
         const userId = req.params.id
-        const user = await User.findById(userId);
+        // je selectionne certains champs de cet utilisateur
+        // SOLUTION 1
+        // const user = await User.findById(userId,"login age family food friends")
+
+        // SOLUTION 2   ENLEVER LE CHAMP QUE L'ON NE VEUT PAS AVEC LE -
+        const user = await User.findById(userId,"-password")
+
+        // SOLUTION 3
+        // .select(login)
+        // .select('age')
+        // .select('family')
+        // .select('food')
+        // .select('friends')
         res.json(user);
     } catch (err) {
         res.json({ message: 'error' + err });
@@ -43,9 +56,18 @@ router.post('/', async (req, res) => {
             race: req.body.race,
             food: req.body.food
         });
+        const friend = new Friend(req.body)
+            // login: req.body.login,
+            // password: req.body.password,
+            // age: req.body.age,
+            // family: req.body.family,
+            // race: req.body.race,
+            // food: req.body.food
+        // });
         console.log(user)
         try {
             const saveUser = user.save();
+            const saveFriend = friend.save();
             res.json(saveUser);
             console.log(saveUser)
         }
